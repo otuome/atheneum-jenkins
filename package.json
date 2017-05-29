@@ -1,19 +1,17 @@
 {
-  "name": "canon-jenkins",
+  "name": "atheneum-jenkins",
   "version": "0.0.0",
-  "description": "Canon CSS and JS integration with Jenkins",
+  "description": "Atheneum CSS and JS integration with Jenkins based on Canon-Jenkins by Rackspace Web Team",
   "repository": {
     "type": "git",
-    "url": "https://github.rackspace.com/rswebteam/canon-jenkins.git"
+    "url": "https://github.com/otuome/atheneum-jenkins.git"
   },
   "keywords": [
     "canon",
+    "atheneum",
     "jenkins"
   ],
-  "author": "David Porter",
-  "contributors" : [
-      "Brady Vitrano"
-  ],
+  "author": "Hasan Otuome",
   "license": "BSD",
   "devDependencies": {
     "grunt": "~0.4.1",

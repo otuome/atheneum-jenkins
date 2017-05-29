@@ -7,25 +7,22 @@ module.exports = function(grunt) {
             options: {
                 //banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
                 mangle : true,
-                compress : true,
+                compress : {
+                  drop_console: true
+                },
                 report: 'min'
             },
             build : {
                 files: {
-                    'build/output.min.js': ['app.js']
+                    'build/min/app.js': ['app.js']
                 }
             }
         },
         copy : {
             views : {
                 files : [
-                    {
-                        src  : [
-                            'app.js',
-                            'style.css'
-                        ],
-                        dest : 'build/'
-                    }
+                    {src  : ['icons/**'], dest : 'build/'},
+                    {src  : ['dashboard-logo.png'], dest : 'build/min/'}
                 ]
             }
 
@@ -33,7 +30,7 @@ module.exports = function(grunt) {
         cssmin: {
             minify: {
                 files: {
-                    'build/styles.css' : ['*.css']
+                    'build/min/styles.css' : ['*.css']
                 }
             }
         },
@@ -44,7 +41,7 @@ module.exports = function(grunt) {
         },
         rev: {
             files: {
-                src: ['build/*.{js,css}']
+                src: ['build/min/*.{js,css}']
             }
         },
         jshint: {
@@ -61,7 +58,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task(s).
-    grunt.registerTask('default', ['clean', 'uglify', 'cssmin','rev','jshint']);
+    grunt.registerTask('default', ['clean', 'uglify', 'cssmin','jshint','copy']);
 
 
 };
